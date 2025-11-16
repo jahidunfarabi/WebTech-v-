@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIUB Adding/Droping Form</title>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h3>American International University-Bangladesh</h3>
+        <h3>Departement of CS</h3>
+        <h3>Adding-Dropping Request Form</h3>
+        <form action="#" method="post">
+            <label for="name">Student Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="id">Student ID:</label>
+            <input type="text" id="id" name="id" required>
+
+            <label for="semester">Semester:</label>
+            <select id="semester" name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="Spring 2025">Spring 2025</option>
+                <option value="Summer 2025">Summer 2025</option>
+                <option value="Fall 2025">Fall 2025</option>
+            </select>
+
+            <label for="add-course">Course to Add:</label>
+            <select id="add-course" name="add-course" required>
+                <option value="">Select Course</option>
+                <option value="CSE101">CSE101 - Introduction to Programming</option>
+                <option value="CSE102">CSE102 - Programming in Phython</option>
+                <option value="CSE201">CSE201 - Data Structure</option>
+                <option value="CSE202">CSE202 - Introduction to database</option>
+            </select>
+
+            <label for="drop-course">Course to Drop:</label>
+            <select id="drop-course" name="drop-course" required>
+                <option value="">Select Course</option>
+                <option value="CSE101">CSE101 - Introduction to Programming</option>
+                <option value="CSE102">CSE102 - Programming in Phython</option>
+                <option value="CSE201">CSE201 - Data Structure</option>
+                <option value="CSE202">CSE202 - Introduction to databse</option>
+            </select>
+
+            <label for="signature">Student Signature:</label>
+            <input type="text" id="signature" name="signature" placeholder="Sign Here" required>
+
+            <input type="submit" value="Submit Form">
+        </form>
+    </div>
+</body>
+
+</html>
