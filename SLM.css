@@ -1,0 +1,26 @@
+.student-item {
+    padding: 8px;
+    margin: 6px 0;
+    background: #f1f1f1;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-edit, .btn-delete {
+    padding: 4px 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-edit {
+    background: #ffd700;
+}
+
+.btn-delete {
+    background: #ff4d4d;
+}
+
+.highlight {
+    background: #b3e5fc !important;
+}
