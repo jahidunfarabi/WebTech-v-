@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Personal Site</title>
+    <style>
+        /* General page styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Styling for the custom <hr> elements */
+        .section-divider {
+            height: 5px;
+            width: 80%;
+            margin: 40px auto;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        /* About Me section */
+        #about-me {
+            background-color: #e3f2fd;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .profile-image-container {
+            flex: 0 0 200px;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #bbdefb;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Education section */
+        #education {
+            background-color: #f1f8e9;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-item {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #7cb342;
+        }
+        
+        .education-item h3 {
+            color: #33691e;
+        }
+        
+        /* Hobbies section */
+        #hobbies {
+            background-color: #fff8e1;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        
+        .hobby-card {
+            background-color: #ffffff;
+            padding: 25px 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Football-specific styling */
+        .hobby-card:nth-child(1) {
+            border-top: 4px solid #1e88e5; /* Blue for football */
+        }
+        
+        /* Photography-specific styling */
+        .hobby-card:nth-child(2) {
+            border-top: 4px solid #f44336; /* Red for photography */
+        }
+        
+        /* Traveling-specific styling */
+        .hobby-card:nth-child(3) {
+            border-top: 4px solid #4caf50; /* Green for traveling */
+        }
+        
+        .hobby-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .hobby-card:hover .hobby-icon {
+            transform: scale(1.1);
+        }
+        
+        .hobby-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .hobby-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Page header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .page-footer a {
+            color: #2196f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .page-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hobby-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .profile-image-container {
+                margin: 0 auto;
+            }
+            
+            .hobbies-container {
+                justify-content: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1>Welcome to My Personal Site</h1>
+        <p>Get to know more about me, my education, and my passions</p>
+    </div>
+    
+    <!-- About Me Section -->
+    <div id="about-me" class="main-section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="profile-image-container">
+                <!-- Replace "your-image.jpg" with your actual image filename -->
+                <img src="./IMG/Buffet_Me_2.jpg" alt="My Profile Picture" class="profile-image">
+            </div>
+            
+            <div class="about-text">
+                <p>Hello! I'm Farabi, a passionate web developer and lifelong learner. I enjoy creating beautiful, functional websites that solve real-world problems. With 1 year of experience in front-end development, I'm constantly exploring new technologies and design trends.</p>
+                <p>My journey in tech started with a simple HTML course, and since then I've expanded my skills to include CSS, JavaScript, React, and various backend technologies. I believe in clean, maintainable code and user-centered design.</p>
+                <p style="color: blue; font-weight: bold; font-style: italic;">When I'm not coding, you'll find me on the football field, capturing moments with my camera, or planning my next adventure to a new destination.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom HR between sections -->
+    <hr class="section-divider" style="background-color: #2196f3; height: 4px; width: 70%;">
+    
+    <!-- Education Section -->
+    <div id="education" class="main-section">
+        <h2>Education</h2>
+        <p>My academic journey has equipped me with both theoretical knowledge and practical skills:</p><br>
+        
+        <div class="education-item">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p><strong>American International University Bangladesh</strong> | 2022 - 2025</p>
+            <p>Specialized in Software Engineering and Web Technologies. Completed a thesis on "".</p>
+        </div>
+        <div class="education-item">
+            <h3>Web Development(MERN Stack)</h3>
+            <p><strong>Creative IT</strong> | 2023</p>
+            <p>Intensive 1 year program focusing on full-stack development with JavaScript, React, Node.js, and databases.</p>
+        </div>
+          <div class="education-item">
+            <h3>Flutter(App development)</h3>
+            <p><strong>Interactive Cares-A digital skill boosting online center in BD</strong> | 2025</p>
+            <p>A 6 months journey with flutter.Expertise and skill up myself in Mobile/PC's app developing</p>
+        </div>
+        
+    </div>
+    
+    <!-- Custom HR between sections -->
+    <hr class="section-divider" style="background-color: #8bc34a; height: 4px; width: 75%;">
+    
+    <!-- Hobbies Section -->
+    <div id="hobbies" class="main-section">
+        <h2>Hobbies & Interests</h2>
+        <p>Beyond coding, I have three main passions that keep me active, creative, and inspired:</p><br>
+        
+        <div class="hobbies-container">
+            <!-- Football Hobby -->
+            <div class="hobby-card">
+                <span class="hobby-icon">⚽</span>
+                <h3>Football</h3>
+                <p>I'm an avid football player and fan. I play midfield for my local club team and never miss watching major tournaments. The strategy, teamwork, and excitement of the game keep me coming back week after week.</p>
+            </div>
+            
+            <!-- Photography Hobby -->
+            <div class="hobby-card">
+                <span class="hobby-icon">📸</span>
+                <h3>Photography</h3>
+                <p>Capturing moments through my lens is my creative outlet. I specialize in landscape and street photography. From golden hour sunsets to candid urban scenes, I love telling stories through images.</p>
+            </div>
+            
+            <!-- Traveling Hobby -->
+            <div class="hobby-card">
+                <span class="hobby-icon">✈️</span>
+                <h3>Traveling</h3>
+                <p>Exploring new cultures and destinations fuels my curiosity. I've visited 15 countries so far and maintain a travel blog. My goal is to experience the unique beauty and stories each place has to offer.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">
+        <p>© 2025 My Personal Site | Connect with me on <a href="https://www.linkedin.com/in/jahidunmuntaka/">Linkedin</a> and <a href="https://github.com/jahidunfarabi">GitHub</a></p>
+    </div>
+</body>
+</html>
