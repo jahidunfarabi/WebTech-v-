@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
+            white-space: nowrap; /* Prevents wrapping to next line */
+        }
+        
+        .sidebar, .main-content, .advertisement {
+            display: inline-block;
+            vertical-align: top;
+            white-space: normal;
+            padding: 20px;
+            border: 2px solid #333;
+            margin: 0;
+        }
+        
+        .sidebar {
+            width: 20%;
+            background-color: #d4edda;
+        }
+        
+        .main-content {
+            width: 60%;
+            background-color: #f8f9fa;
+        }
+        
+        .advertisement {
+            width: 20%;
+            background-color: #fff3cd;
+        }
+        
+        h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #666;
+            padding-bottom: 10px;
+        }
+        
+        p {
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Portal Layout</h1>
+    
+    <div class="container">
+        <!-- Sidebar for categories -->
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <p>Politics</p>
+            <p>Technology</p>
+            <p>Sports</p>
+            <p>Entertainment</p>
+            <p>Health & Science</p>
+        </div>
+        
+        <!-- Main content for articles -->
+        <div class="main-content">
+            <h2>Breaking News</h2>
+            <p>Major breakthrough in renewable energy technology promises cleaner, cheaper power for millions of households worldwide.</p>
+            <p>Global leaders meet to discuss climate change initiatives and set new targets for carbon emission reductions.</p>
+            <p>Local sports team wins championship after dramatic final match that went into overtime.</p>
+        </div>
+        
+        <!-- Right panel for advertisements -->
+        <div class="advertisement">
+            <h2>Advertisements</h2>
+            <p><strong>Special Offer:</strong> Get 50% off on annual subscription!</p>
+            <p><strong>New Product:</strong> Try our latest tech gadget with 30-day money-back guarantee.</p>
+            <p><strong>Travel Deal:</strong> Book your dream vacation today and save up to 40%.</p>
+        </div>
+    </div>
+</body>
+</html>
