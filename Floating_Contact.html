@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Contact Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 200vh; /* Makes page scrollable */
+            background-color: #f0f0f0;
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Floating Contact Widget */
+        .contact-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #3498db;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            width: 200px;
+        }
+        
+        .contact-widget:hover {
+            background-color: #1a252f;
+        }
+        
+        .widget-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-link:hover {
+            color: #3498db;
+        }
+        
+        .icon {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sample content to make page scrollable -->
+    <div class="content">
+        <h1>Company Website</h1>
+        <p>Scroll down to see the floating contact widget stay in place.</p>
+        
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        
+        <h2>Services</h2>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        
+        <h2>Contact Information</h2>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        
+        <!-- More content to enable scrolling -->
+        <div style="height: 1000px;"></div>
+        
+        <p>End of page content. The contact widget should still be visible.</p>
+    </div>
+
+    <!-- Floating Contact Widget -->
+    <div class="contact-widget">
+        <div class="widget-title">Contact Us</div>
+        <div class="contact-info">
+            <a href="tel:+1234567890" class="contact-link">
+                <span class="icon">📞</span>
+                <span>+1 (234) 567-890</span>
+            </a>
+            <a href="mailto:support@company.com" class="contact-link">
+                <span class="icon">✉️</span>
+                <span>support@company.com</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
