@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Tracker</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .summary { 
+            background: #e8f4fd; 
+            padding: 15px; 
+            margin-bottom: 20px; 
+            border-radius: 5px;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px;
+        }
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 12px; 
+            text-align: left;
+        }
+        th { background: #4CAF50; color: white; }
+        .present { background: #d4edda; color: #155724; }
+        .absent { background: #f8d7da; color: #721c24; }
+        .late { background: #fff3cd; color: #856404; }
+        button { 
+            padding: 6px 12px; 
+            margin: 2px; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 3px;
+        }
+        .present-btn { background: #28a745; color: white; }
+        .absent-btn { background: #dc3545; color: white; }
+        .late-btn { background: #ffc107; color: black; }
+        .all-present-btn { 
+            background: #007bff; 
+            color: white; 
+            padding: 10px 20px; 
+            margin-top: 10px;
+        }
+        .stat-box { 
+            display: inline-block; 
+            padding: 10px 15px; 
+            margin: 5px; 
+            background: white; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Attendance Tracker</h2>
+    
+    <div class="summary">
+        <h3>Attendance Summary</h3>
+        <div class="stat-box">Total Students: <span id="total">0</span></div>
+        <div class="stat-box">Present: <span id="presentCount">0</span></div>
+        <div class="stat-box">Absent: <span id="absentCount">0</span></div>
+        <div class="stat-box">Late: <span id="lateCount">0</span></div>
+        <div class="stat-box">Attendance: <span id="percentage">0%</span></div>
+        
+        <br>
+        <button class="all-present-btn" onclick="markAllPresent()">Mark All Present</button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Status</th>
+                <th>Actions</th>
+                <th>Current Status</th>
+            </tr>
+        </thead>
+        <tbody id="attendanceTable">
+            <!-- Rows will be added here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Student data
+        let students = [
+            { id: 1, name: "Md Jahidun Muntaka", status: "present" },
+            { id: 2, name: "Abir Bhuiyan", status: "present" },
+            { id: 3, name: "Amit Hasan", status: "absent" },
+            { id: 4, name: "Sneha Sobhan", status: "late" },
+            { id: 5, name: "Labib Hasan", status: "present" },
+            { id: 6, name: "Anika Jakir", status: "absent" },
+            { id: 7, name: "Rohan Mostafa", status: "present" },
+            { id: 8, name: "Neha Khondokar", status: "present" }
+        ];
+
+        // Display attendance table
+        function showAttendance() {
+            const tableBody = document.getElementById("attendanceTable");
+            tableBody.innerHTML = "";
+            
+            students.forEach(student => {
+                const row = document.createElement("tr");
+                row.classList.add(student.status);
+                
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>
+                        <button class="present-btn" onclick="updateStatus(${student.id}, 'present')">Present</button>
+                        <button class="absent-btn" onclick="updateStatus(${student.id}, 'absent')">Absent</button>
+                        <button class="late-btn" onclick="updateStatus(${student.id}, 'late')">Late</button>
+                    </td>
+                    <td>${student.status.toUpperCase()}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            updateSummary();
+        }
+
+        // Update student status
+        function updateStatus(studentId, newStatus) {
+            const student = students.find(s => s.id === studentId);
+            if (student) {
+                student.status = newStatus;
+                showAttendance();
+            }
+        }
+
+        // Mark all students present
+        function markAllPresent() {
+            students.forEach(student => {
+                student.status = "present";
+            });
+            showAttendance();
+        }
+
+        // Update summary statistics
+        function updateSummary() {
+            const total = students.length;
+            const present = students.filter(s => s.status === "present").length;
+            const absent = students.filter(s => s.status === "absent").length;
+            const late = students.filter(s => s.status === "late").length;
+            const percentage = Math.round((present / total) * 100);
+            
+            document.getElementById("total").textContent = total;
+            document.getElementById("presentCount").textContent = present;
+            document.getElementById("absentCount").textContent = absent;
+            document.getElementById("lateCount").textContent = late;
+            document.getElementById("percentage").textContent = percentage + "%";
+        }
+
+        // Initial display
+        showAttendance();
+    </script>
+</body>
+</html>
