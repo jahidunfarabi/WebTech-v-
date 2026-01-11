@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>PHP POST and GET Combined</title>
+  </head>
+  <body>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+      Name: <input type="text" name="fname" />
+      <input type="submit" />
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // collect value of input field
+        $name = $_REQUEST['fname'];
+        if (empty($name)) {
+            echo "Name is empty";
+        } else {
+            echo $name;
+        }
+    }
+    ?>
+
+    <hr />
+
+    <a href="?subject=PHP&web=Google.com">Test GET Method</a>
+    <br /><br />
+
+    <?php
+    if (isset($_GET['subject']) && isset($_GET['web'])) {
+        echo "Study " . $_GET['subject'] . " at " . $_GET['web'];
+    }
+    ?>
+  </body>
+</html>

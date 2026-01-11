@@ -1,0 +1,35 @@
+<html>
+  <body>
+   <form action="process.php" method="GET">
+  Search: <input type="text" name="query">
+  <input type="submit">
+</form>
+
+<?php
+  echo "You searched for: " . $_GET['query'];
+?>
+  </body>
+</html>
+
+
+
+<!-- POST -->
+<html>
+  <body>
+  <form action="submit.php" method="POST">
+  Username: <input type="text" name="user">
+  Password: <input type="password" name="pass">
+  <input type="submit">
+</form>
+
+<?php
+  $user = $_POST['user'];
+  $pass = $_POST['pass'];
+  echo "Login attempt for: " . $user;
+?>
+
+  </body>
+</html>
+
+
+

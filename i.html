@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+           
+    <title>Fetch Data with AJAX</title>
+  </head>
+  <body>
+       
+    <h1>Fetch Data from Database</h1>
+       
+    <div id="data-container"></div>
+     
+    <script>
+      // Function to fetch data using AJAX
+      document.addEventListener("DOMContentLoaded", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "fetch_data.php", true);
+        xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(xhr.responseText);
+            var html =
+              '<table border="1"><tr><th>ID</th><th>Name</th><th>Email</th></tr>';
+            data.forEach(function (item) {
+              html += "<tr>";
+              html += "<td>" + item.id + "</td>";
+              html += "<td>" + item.name + "</td>";
+              html += "<td>" + item.email + "</td>";
+              html += "</tr>";
+            });
+            html += "</table>";
+            document.getElementById("data-container").innerHTML = html;
+          } else {
+            console.error("Request failed with status " + xhr.status);
+          }
+        };
+        xhr.onerror = function () {
+          console.error("Request failed");
+        };
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>
